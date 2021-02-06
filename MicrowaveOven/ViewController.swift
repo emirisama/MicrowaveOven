@@ -33,13 +33,13 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
          let minutes = UILabel()
         minutes.text = "分"
         minutes.sizeToFit()
-        minutes.frame = CGRect(x:PickerView.bounds.width/2 - minutes.bounds.width/2, y:PickerView.bounds.height/2 - (minutes.bounds.height/2), width: minutes.bounds.width, height: minutes.bounds.height)
+        minutes.frame = CGRect(x:PickerView.bounds.width/2 - minutes.bounds.width*4, y:PickerView.bounds.height/2 - (minutes.bounds.height/2), width: minutes.bounds.width, height: minutes.bounds.height)
         PickerView.addSubview(minutes)
         //秒のラベル追加
         let seconds = UILabel()
         seconds.text = "秒"
         seconds.sizeToFit()
-        seconds.frame = CGRect(x: PickerView.bounds.width*3/4 - seconds.bounds.width/2, y: PickerView.bounds.height/2 - (seconds.bounds.height/2), width: seconds.bounds.width, height: seconds.bounds.height)
+        seconds.frame = CGRect(x: PickerView.bounds.width*7/8 - seconds.bounds.width/2, y: PickerView.bounds.height/2 - (seconds.bounds.height/2), width: seconds.bounds.width, height: seconds.bounds.height)
         PickerView.addSubview(seconds)
         
         
@@ -62,7 +62,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     //データを返すメソッド
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let countLabel = UILabel()
-        countLabel.textAlignment = NSTextAlignment.left
+        countLabel.textAlignment = NSTextAlignment.center
         countLabel.text = String(countList[component][row])
         return countLabel
         
@@ -89,7 +89,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         if(count > 0){
             countLabel.text = "残り\(count)秒です"
         }else{
-            countLabel.text = "カウントダウン終了"
+            countLabel.text = "あたため完了"
             timer.invalidate()
         }
     }
