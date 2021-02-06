@@ -17,12 +17,12 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var wattLabel: UILabel!
     
-    
     var timer = Timer()
     var count = 0
+    var wattcount = 0
     
     let countList = [[Int](0...60),[Int](0...60)]
-    let wattList:[String] = ["1200W","600W","500W"]
+    let wattList:[String] = ["500W","600W","1200W"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +45,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         
     }
 
-    @IBAction func startCountDown(_ sender: Any) {
-    }
+
     
     
     //コンポーネントの個数を返すメソッド
@@ -93,6 +92,19 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
             timer.invalidate()
         }
     }
+    
+    
+    @IBAction func wattButton(_ sender: Any) {
+        wattcount += 1
+        if wattcount == 1{
+            wattLabel.text = "500W"
+        }else if wattcount == 2{
+            wattLabel.text = "600W"
+        }else if wattcount == 3{
+            wattLabel.text = "1200W"
+        }
+    }
+    
     
     
 }
